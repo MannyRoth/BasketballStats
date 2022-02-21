@@ -39,19 +39,16 @@ def balance_teams():
 
 def clean_data():
     for player in PLAYERS:
+        player_experience.append(player['experience'])
+
+    for player in PLAYERS:
         player_height.append(int(player['height'].split()[0]))
 
     while len(player_height) > 0:
         PanthersHeight.append(player_height.pop())
         BanditsHeight.append(player_height.pop())
         WarriorsHeight.append(player_height.pop())
-
-    return start_app()
-    #player_experience.append(player['experience'])
-    #if player_experience == 'YES':
-       # return True
-    #else:
-        #return False
+    
     
     
 
