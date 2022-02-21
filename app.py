@@ -67,9 +67,9 @@ def which_team(answer):
         which_team = input('\nEnter and option: ').lower()
         
         if which_team == 'a':
-            print(len(Panthers))
             PantherString = ', '.join(Panthers)
             PHeightAvg = sum(PanthersHeight) / len(Panthers)
+            print('\nPanthers Team')
             print(f'Average Height: {PHeightAvg}')
             print(f"Total players: {len(Panthers)}")
             print(f'\n Players on Team: {PantherString}')
@@ -77,6 +77,7 @@ def which_team(answer):
         elif which_team == 'b':
             BHeightAvg = sum(BanditsHeight) / len(Bandits)
             BanditsString = ', '.join(Bandits)
+            print('\nBandits Team')
             print(f'Average Height: {BHeightAvg}')
             print(f"Total players: {len(Bandits)}")
             print(f'\n Players on team: {BanditsString}')
@@ -84,6 +85,7 @@ def which_team(answer):
         elif which_team == 'c':
             WHeightAvg = sum(WarriorsHeight) / len(Warriors)
             WarriorsString = ', '.join(Warriors)
+            print('\nWarriors Team')
             print(f'Average Height: {WHeightAvg}')
             print(f"Total players: {len(Warriors)}")
             print(f'\n Players on Team: {WarriorsString}')
