@@ -22,7 +22,7 @@ Panthers = []
 Bandits = []
 Warriors = []
 
-
+#Seperates players into the 3 teams
 def balance_teams():
 
     for player in PLAYERS:
@@ -36,11 +36,8 @@ def balance_teams():
     return clean_data() 
 
 
-
+#gets player heights and puts it in a list
 def clean_data():
-    for player in PLAYERS:
-        player_experience.append(player['experience'])
-
     for player in PLAYERS:
         player_height.append(int(player['height'].split()[0]))
 
@@ -48,16 +45,15 @@ def clean_data():
         PanthersHeight.append(player_height.pop())
         BanditsHeight.append(player_height.pop())
         WarriorsHeight.append(player_height.pop())
-    
-    
-    
+        return start_app()
+
 
 def start_app():
     print('BASKETBALL STATS TOOL\n\nHere are your choices:\n\nA) Display Team Stats\nB) Quit')
     answer = input('\n Enter an option: ').lower()
     return which_team(answer)
 
-
+#uses prior created lists to display info of teams on selection
 def which_team(answer):
     if answer == 'a':
         print('A) Panthers\nB) Bandits\nC) Warriors')
@@ -70,6 +66,7 @@ def which_team(answer):
             print(f'Average Height: {PHeightAvg}')
             print(f"Total players: {len(Panthers)}")
             print(f'\n Players on Team: {PantherString}')
+            
 
         elif which_team == 'b':
             BHeightAvg = sum(BanditsHeight) / len(Bandits)
@@ -79,6 +76,7 @@ def which_team(answer):
             print(f"Total players: {len(Bandits)}")
             print(f'\n Players on team: {BanditsString}')
             
+            
         elif which_team == 'c':
             WHeightAvg = sum(WarriorsHeight) / len(Warriors)
             WarriorsString = ', '.join(Warriors)
@@ -86,12 +84,12 @@ def which_team(answer):
             print(f'Average Height: {WHeightAvg}')
             print(f"Total players: {len(Warriors)}")
             print(f'\n Players on Team: {WarriorsString}')
+            
         else:
-            print('Please select a listed option.')
-            return which_team(answer)
+            print('\nPLEASE SELECT A LISTED OPTION\n')
+            return start_app()
     else:
         exit()
 
-
-
-balance_teams()
+if __name__ == "__main__":
+    balance_teams() 
