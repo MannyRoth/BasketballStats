@@ -4,9 +4,6 @@ from constants import TEAMS
 
 
 player_names = []
-player_guardians = []
-
-player_experience = []
 
 PanthersHeight = []
 BanditsHeight = []
