@@ -1,9 +1,12 @@
 
+from re import A
 from constants import PLAYERS
 from constants import TEAMS
 
 
 player_names = []
+
+player_experience = []
 
 PanthersHeight = []
 BanditsHeight = []
@@ -18,6 +21,8 @@ WarriorsHeight = []
 Panthers = []
 Bandits = []
 Warriors = []
+
+
 
 #Seperates players into the 3 teams
 def balance_teams():
@@ -42,7 +47,14 @@ def clean_data():
         PanthersHeight.append(player_height.pop())
         BanditsHeight.append(player_height.pop())
         WarriorsHeight.append(player_height.pop())
-        return start_app()
+    for player in PLAYERS:
+        player_experience.append(player['experience'])
+    for i in range(len(player_experience)):
+        if player_experience[i] == 'NO':
+            player_experience[i] = False
+        else:
+            player_experience[i] = True 
+    return start_app()
 
 
 def start_app():
@@ -85,8 +97,10 @@ def which_team(answer):
         else:
             print('\nPLEASE SELECT A LISTED OPTION\n')
             return start_app()
-    else:
+    elif answer == 'b':
         exit()
+    else:
+        balance_teams() 
 
 if __name__ == "__main__":
     balance_teams() 
